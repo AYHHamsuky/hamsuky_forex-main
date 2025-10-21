@@ -1,0 +1,77 @@
+2025-10-21 13:42:21,705 - INFO - ICT modules loaded successfully
+2025-10-21 13:42:21,718 - ERROR - Error in trial expiration reminder: name 'get_firestore_db' is not defined
+2025-10-21 13:42:21,720 - INFO - Daily tasks completed on 2025-10-21
+2025-10-21 13:42:22,398 - INFO - Started MT5 trade monitor thread
+2025-10-21 13:42:22,402 - INFO - Using JustMarkets demo account 2001479025
+2025-10-21 13:42:22,402 - INFO - Attempt 1/3: Connecting to JustMarkets MT5 with demo account 2001479025
+2025-10-21 13:42:22,437 - INFO - Successfully connected to JustMarkets DEMO account #2001479025
+2025-10-21 13:42:22,437 - INFO - Server: JustMarkets-Demo, Balance: 2542.74 USD
+2025-10-21 13:42:24,229 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:42:27,719 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:42:27,724 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:42:30,082 - INFO - ICT modules loaded successfully
+2025-10-21 13:42:31,639 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:42:31,648 - INFO - Starting market monitor with auto-trade=False
+2025-10-21 13:42:36,969 - INFO - ICT modules loaded successfully
+2025-10-21 13:42:39,780 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:42:52,405 - INFO - MT5 Monitor: Tracking 0 open positions
+2025-10-21 13:42:53,516 - INFO - ICT modules loaded successfully
+2025-10-21 13:42:55,090 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:43:07,940 - INFO - ICT modules loaded successfully
+2025-10-21 13:43:09,537 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:43:22,385 - INFO - ICT modules loaded successfully
+2025-10-21 13:43:22,416 - INFO - MT5 Monitor: Tracking 0 open positions
+2025-10-21 13:43:23,949 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:43:36,631 - INFO - ICT modules loaded successfully
+2025-10-21 13:43:38,143 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:43:50,771 - INFO - ICT modules loaded successfully
+2025-10-21 13:43:52,446 - INFO - MT5 Monitor: Tracking 0 open positions
+2025-10-21 13:43:52,500 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:44:06,190 - INFO - ICT modules loaded successfully
+2025-10-21 13:44:08,061 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:44:20,840 - INFO - ICT modules loaded successfully
+2025-10-21 13:44:22,513 - INFO - MT5 Monitor: Tracking 0 open positions
+2025-10-21 13:44:22,632 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:44:35,353 - INFO - ICT modules loaded successfully
+2025-10-21 13:44:36,926 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:44:49,570 - INFO - ICT modules loaded successfully
+2025-10-21 13:44:51,908 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:44:52,552 - INFO - MT5 Monitor: Tracking 0 open positions
+2025-10-21 13:45:06,593 - INFO - ICT modules loaded successfully
+2025-10-21 13:45:08,213 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:45:21,042 - INFO - ICT modules loaded successfully
+2025-10-21 13:45:22,579 - INFO - MT5 Monitor: Tracking 0 open positions
+2025-10-21 13:45:22,593 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:45:35,106 - INFO - ICT modules loaded successfully
+2025-10-21 13:45:36,572 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:45:49,191 - INFO - ICT modules loaded successfully
+2025-10-21 13:45:50,697 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:45:52,589 - INFO - MT5 Monitor: Tracking 0 open positions
+2025-10-21 13:46:03,575 - INFO - ICT modules loaded successfully
+2025-10-21 13:46:07,607 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:46:21,943 - INFO - ICT modules loaded successfully
+2025-10-21 13:46:22,602 - INFO - MT5 Monitor: Tracking 0 open positions
+2025-10-21 13:46:23,590 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:46:36,527 - INFO - ICT modules loaded successfully
+2025-10-21 13:46:38,743 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:46:51,962 - INFO - ICT modules loaded successfully
+2025-10-21 13:46:52,613 - INFO - MT5 Monitor: Tracking 0 open positions
+2025-10-21 13:46:53,495 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:47:06,296 - INFO - ICT modules loaded successfully
+2025-10-21 13:47:08,008 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:47:22,620 - INFO - MT5 Monitor: Tracking 0 open positions
+2025-10-21 13:47:22,859 - INFO - ICT modules loaded successfully
+2025-10-21 13:47:24,649 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:47:38,679 - INFO - ICT modules loaded successfully
+2025-10-21 13:47:40,765 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:47:52,625 - INFO - MT5 Monitor: Tracking 0 open positions
+2025-10-21 13:47:54,400 - INFO - ICT modules loaded successfully
+2025-10-21 13:47:56,408 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:48:11,135 - INFO - ICT modules loaded successfully
+2025-10-21 13:48:15,488 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:48:22,640 - INFO - MT5 Monitor: Tracking 0 open positions
+2025-10-21 13:48:31,615 - INFO - ICT modules loaded successfully
+2025-10-21 13:48:33,837 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:48:48,531 - INFO - ICT modules loaded successfully
+2025-10-21 13:48:50,902 - INFO - Retrieved 68 deals from JustMarkets MT5
+2025-10-21 13:48:52,656 - INFO - MT5 Monitor: Tracking 0 open positions
