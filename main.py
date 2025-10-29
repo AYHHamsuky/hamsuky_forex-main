@@ -10,6 +10,7 @@ import os
 import streamlit as st
 import threading
 import json
+
 from datetime import timezone
 from pathlib import Path
 from meta import *  # For trading operations
@@ -171,167 +172,12 @@ def send_signal_to_subscribers(message, signal_type="general", retry_attempts=3,
     logger.error(f"Failed to send Telegram message after {retry_attempts} attempts")
     return False
 
-# Add a function to send trial expiration reminders via Telegram:
-def send_trial_expiration_reminder():
-    """
-    Check for users whose trials are about to expire and send reminders
-    This should be run daily via a scheduled task
-    """
-    try:
-        db = get_firestore_db()
-        if not db:
-            logger.error("Firebase not initialized")
-            return
-        
-        # Find users whose trials expire in 1, 2, or 3 days
-        now = datetime.datetime(timezone.utc)
-        reminder_days = [1, 2, 3]
-        
-        for days in reminder_days:
-            target_date = now + datetime.timedelta(days=days)
-            
-            # Query users with trial expiring around this date
-            # Note: This is an approximate query as Firestore doesn't support precise datetime queries
-            # You may need to where further in code
-            query = db.collection('users').where(
-                'subscription.status', '==', 'trial'
-            ).get()
-            
-            for user_doc in query:
-                user_data = user_doc.to_dict()
-                user_id = user_doc.id
-                
-                subscription = user_data.get('subscription', {})
-                end_date = subscription.get('end_date')
-                
-                # Convert end_date to datetime if needed
-                if not isinstance(end_date, datetime.datetime):
-                    try:
-                        if isinstance(end_date, str):
-                            end_date = datetime.datetime.fromisoformat(end_date)
-                        else:
-                            # Handle firestore timestamp
-                            end_date = end_date.datetime() if hasattr(end_date, 'datetime') else None
-                    except:
-                        end_date = None
-                
-                # Calculate days until expiration
-                if end_date:
-                    days_until_expiry = (end_date - now).days
-                    
-                    # If it matches our target reminder day
-                    if days_until_expiry == days:
-                        # Get user's telegram chat ID
-                        telegram_chat_id = user_data.get('telegram_chat_id')
-                        
-                        if telegram_chat_id:
-                            # Send reminder via Telegram
-                            message = f"""
-⚠️ <b>TRIAL EXPIRATION REMINDER</b> ⚠️
-
-Hello {user_data.get('name', 'there')}!
-
-Your free trial of Hamsuky Trading Signals will expire in <b>{days} days</b>.
-
-To continue receiving premium trading signals and maintain uninterrupted access to all features, please subscribe to our monthly plan for just $10/month.
-
-<b>Subscribe now to:</b>
-✅ Continue receiving premium trading signals
-✅ Keep access to entry/exit levels
-✅ Maintain your trading performance history
-✅ Receive priority support
-
-<a href="https://www.hamsuky-trading.com/subscribe">Click here to subscribe</a> or simply open the app and click "Subscribe Now".
-
-Thank you for trying Hamsuky Trading Signals!
-"""
-                            # Send message
-                            bot_token = os.getenv("TELEGRAM_BOT_TOKEN")
-                            if bot_token:
-                                url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
-                                data = {
-                                    "chat_id": telegram_chat_id, 
-                                    "text": message, 
-                                    "parse_mode": "HTML"
-                                }
-                                
-                                try:
-                                    requests.post(url, data=data, timeout=10)
-                                    logger.info(f"Sent trial expiration reminder to user {user_id} - {days} days left")
-                                except Exception as e:
-                                    logger.error(f"Error sending reminder to {user_id}: {e}")
-                            
-    except Exception as e:
-        logger.error(f"Error in trial expiration reminder: {e}")
+# Removed subscription and trial management code for standalone deployment
 
 
-def check_daily_tasks():
-    """Run daily maintenance tasks"""
-    # Get current time
-    now = datetime.datetime.now()
-    
-    # Check if we've run today's tasks
-    last_run_date = st.session_state.get('last_daily_run_date')
-    today = now.date()
-    
-    if last_run_date != today:
-        # Run trial expiration reminders
-        send_trial_expiration_reminder()
-        
-        # Update last run date
-        st.session_state.last_daily_run_date = today
-        logger.info(f"Daily tasks completed on {today}")
+# Removed daily tasks function for standalone deployment
 
-# Note: Session state initialization and check_daily_tasks() are called inside main() function to ensure proper initialization
-
-def check_trial_status():
-    """
-    Check if trial is active and how many days remain
-    Returns (is_trial, days_remaining, is_active)
-    """
-    # Initialize user_data if not present (for standalone mode without authentication)
-    if 'user_data' not in st.session_state:
-        st.session_state.user_data = {
-            'subscription': {
-                'status': 'active',
-                'end_date': None
-            }
-        }
-    
-    user_data = st.session_state.user_data
-    subscription = user_data.get('subscription', {})
-    status = subscription.get('status', '')
-    
-    # Check if user is on trial
-    is_trial = (status == 'trial')
-    
-    # Calculate remaining days
-    end_date = subscription.get('end_date')
-    
-    # Convert end_date to datetime if needed
-    if end_date and not isinstance(end_date, datetime.datetime):
-        try:
-            if isinstance(end_date, str):
-                end_date = datetime.datetime.fromisoformat(end_date)
-            else:
-                # Handle firestore timestamp
-                end_date = end_date.datetime() if hasattr(end_date, 'datetime') else datetime.datetime.now(timezone.utc)
-        except:
-            end_date = datetime.datetime.now(timezone.utc)
-    
-    if end_date:
-        now = datetime.datetime.now(timezone.utc)
-        if end_date > now:
-            days_remaining = (end_date - now).days
-            is_active = True
-        else:
-            days_remaining = 0
-            is_active = False
-    else:
-        days_remaining = 0
-        is_active = False
-    
-    return is_trial, days_remaining, is_active
+# Removed trial status check function for standalone deployment
 
 
 def initialize_mt5(account_type="demo", max_retries=3, retry_delay=2):
@@ -2685,20 +2531,9 @@ def monitor_active_mt5_trades():
             time.sleep(60)  # Longer delay after an error
 
 def main():
-    # Initialize session state variables first
-    if 'last_daily_run_date' not in st.session_state:
-        st.session_state.last_daily_run_date = None
-    
-    if 'user_data' not in st.session_state:
-        st.session_state.user_data = {
-            'subscription': {
-                'status': 'active',
-                'end_date': None
-            }
-        }
-    
-    # Run daily tasks
-    check_daily_tasks()
+    # Initialize session state variables for trading bot
+    if 'monitor_running' not in st.session_state:
+        st.session_state.monitor_running = False
     
     # Custom CSS for better UI styling
     st.markdown("""
