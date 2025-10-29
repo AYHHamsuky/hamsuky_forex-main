@@ -1,5 +1,5 @@
 # Core Trading Dependencies
-MetaTrader5>=5.0.37
+MetaTrader5
 pandas>=1.5.0
 numpy>=1.21.0
 TA-Lib>=0.4.25
